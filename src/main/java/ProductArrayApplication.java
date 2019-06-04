@@ -6,7 +6,16 @@ import java.util.stream.IntStream;
 public class ProductArrayApplication {
 
     public static void main(String[] args){
-        calculateProductArrayBasic(new long[]{1,2,3,4,5});
+        calculateProductArrayBasic(new long[]{1,2,3,4,5}); //Test 1
+        calculateProductArrayBasic(new long[]{}); //Test 2
+        calculateProductArrayBasic(new long[]{0}); //Test 3
+        calculateProductArrayBasic(new long[]{1}); //Test 4
+        calculateProductArrayBasic(new long[]{10,20}); //Test 5
+        calculateProductArrayBasic(null); //Test 6
+        calculateProductArrayBasic(new long[0]); //Test 7
+        calculateProductArrayBasic(new long[]{5,0,23,0,70,0,0,1}); //Test 8
+        calculateProductArrayBasic(new long[]{13,15,6,10,200,0}); //Test 9
+        calculateProductArrayBasic(new long[]{15,31,50,0,0,35,34}); //Test 8
 
     }
     public static long[] calculateProductArrayBasic(long[] input) {
@@ -14,9 +23,15 @@ public class ProductArrayApplication {
             if (input.length!=0) {
                 if (input.length==1){
                     if (input[0]==0) {
-                        return new long[]{1};
+                        System.out.print("Probando "+Arrays.toString(input));
+                        input[0]=1;
+                        System.out.print(" - Resultado "+Arrays.toString(input));
+                        System.out.println();
+                        return input;
+
                     }else {
-                        return new long[]{input[0]};
+                        System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Arrays.toString(input));
+                        return input;
                     }
                 }else {
 
@@ -64,14 +79,16 @@ public class ProductArrayApplication {
                             Resultado.add(1L);
                         }
                     }
-                    System.out.println("test = " + Resultado);
+                    System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Resultado);
                     return Resultado.stream().mapToLong(l -> l).toArray();
                 }
             }else {
-                return new long[]{};
+                System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Arrays.toString(input));
+                return input;
             }
         }else {
-            return null;
+            System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Arrays.toString(input));
+            return input;
         }
 
     }
